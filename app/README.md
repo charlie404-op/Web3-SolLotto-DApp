@@ -2,7 +2,7 @@ Certainly! Here's a template for your README file:
 
 ---
 
-# Solana Lottery Dapp
+# Solana Lottery Dapp - SolLotto
 
 ## Overview
 
@@ -79,8 +79,5 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
 
-For any inquiries, contact [Your Name] at [your.email@example.com].
+For any inquiries, contact [Kushal] at [kushal0213@gmail.com].
 
----
-
-Feel free to customize the template according to your specific project details and preferences.

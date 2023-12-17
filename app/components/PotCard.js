@@ -74,8 +74,8 @@ const PotCard = () => {
             </div>
           </>
         ) : (
-          // Wallet multibutton
-          <WalletMultiButton />
+          // Wallet multibutton -> initialize master 
+          <button onClick={() => connectWallet()}> Connect wallet </button>
         )}
       </div>
     );
@@ -119,7 +119,7 @@ const PotCard = () => {
           </div>
         </>
       ) : (
-        <WalletMultiButton />
+        <button onClick={() => connectWallet()}> Connect wallet</button>
       )}
     </div>
   );

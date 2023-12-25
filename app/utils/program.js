@@ -18,6 +18,8 @@ export const getProgram = (connection, wallet) => {
   return program;
 };
 
+
+// Get the program_id 
 export const getMasterAddress = async () => {
   return (
     await PublicKey.findProgramAddress([Buffer.from(MASTER_SEED)], PROGRAM_ID)

@@ -14,6 +14,7 @@ require("@solana/wallet-adapter-react-ui/styles.css");
 import { BackpackWalletAdapter } from "@solana/wallet-adapter-wallets";
 import { SolflareWalletAdapter } from "@solana/wallet-adapter-wallets";
 import { BraveWalletAdapter } from "@solana/wallet-adapter-wallets";
+import { AppProvider } from "../context/context";
 
 export default function Home() {
   const endpoint =
@@ -35,11 +36,15 @@ export default function Home() {
     <ConnectionProvider endpoint={endpoint}> 
       <WalletProvider wallets={wallets} autoConnect>
         <WalletModalProvider>
+
+          <AppProvider>
           <div className={style.wrapper}>
             <Header />
             <PotCard />
             <Table />
           </div>
+          </AppProvider>
+          
         </WalletModalProvider>
       </WalletProvider>
     </ConnectionProvider>

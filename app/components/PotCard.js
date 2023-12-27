@@ -3,14 +3,22 @@ import style from "../styles/PotCard.module.css";
 import { useAppContext } from "../context/context";
 import { shortenPk } from "../utils/helper";
 import { Toaster } from 'react-hot-toast';
+
 // Temp imports
 import { PublicKey } from '@solana/web3.js';
 import { useState } from "react"
 
 const PotCard = () => {
+  const {
+    connected,
+    isMasterInitialized,
+    initMaster,
+  } = useAppContext();
+console.log(connected, "CONNECTION STATUS")
+
   // Static Data
   const lotteryId = 3
-  const lotteryPot = 1000
+  const lotteryPot = 50
 
   const lotteryHistory = [
     { lotteryId: 3, winnerId: 3, winnerAddress: new PublicKey("11111111111111111111111111111111"), prize: '15' }
@@ -18,12 +26,11 @@ const PotCard = () => {
 
   // Static States:
 
-  // Is Wallet connected?
-  const [connected, setConnected] = useState(false)
+
   // Did the connected wallet create the lottery?
   const isLotteryAuthority = true
   // Is the master created for smart contract?
-  const [isMasterInitialized, setIsMasterInitialized] = useState(false)
+
   // Is there already a winner for the lottery?
   const [isFinished, setIsFinished] = useState(false)
   // If there is a winner can that winner claim the prize?
@@ -36,10 +43,6 @@ const PotCard = () => {
     console.log("Connecting static wallet")
   }
 
-  const initMaster = () => {
-    setIsMasterInitialized(true)
-    console.log("Initialized Master")
-  }
 
   const createLottery = () => {
     // updates the lottery id
@@ -75,7 +78,7 @@ const PotCard = () => {
           </>
         ) : (
           // Wallet multibutton -> initialize master 
-          <button onClick={() => connectWallet()}> Connect wallet </button>
+          <WalletMultiButton/>
         )}
       </div>
     );
@@ -119,7 +122,7 @@ const PotCard = () => {
           </div>
         </>
       ) : (
-        <button onClick={() => connectWallet()}> Connect wallet</button>
+        <WalletMultiButton/>
       )}
     </div>
   );
